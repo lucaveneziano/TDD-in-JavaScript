@@ -1,1 +1,1 @@
-# TDD-in-JavaScript
+# tdd-in-js
