@@ -85,3 +85,27 @@ test("multiply empty array to equal error", () => {
  test('multiply a string bill with parrot to return a nah', () => {
      expect(base.multiply(['bill', 'parrot'])).toBe("Error - operands need to be numeric");
  })
+
+ //exponents
+ test('power 2 * 2 to equal 4', () => {
+    expect(base.pow([2, 2])).toBe(4);
+})
+test('power 100 * 0 to equal 0', () => {
+    expect(base.pow([100, 0])).toBe(1);
+})
+test("power 'test' * 0 to equal 'Error - operands need to be numeric'", () => {
+    expect(base.pow(['test', 0])).toBe("Error - operands need to be numeric");
+})
+
+/*
+test("multiply empty array to equal error", () => {
+    expect(base.multiply([])).toBe("Error - operands need to be numeric");
+})*/
+
+test("power empty array to equal error", () => {
+    expect(base.pow([])).toBe(undefined);
+})
+
+ test('power a string bill with parrot to return a nah', () => {
+     expect(base.pow(['bill', 'parrot'])).toBe("Error - operands need to be numeric");
+ })
