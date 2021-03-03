@@ -46,16 +46,42 @@ const base = require('../index');
 // })
 
 //divide
+/*
 test('divide 1 / 1 to equal 1', () => {
-    expect(base.divide([1,0])).toBe("error not finite");
+    expect(base.divide([1, 0])).toBe("error not finite");
 })
 test('divide 1 / 0 / 1 to equal error', () => {
-    expect(base.divide([1,0,1])).toBe("error not finite");
+    expect(base.divide([1, 0, 1])).toBe("error not finite");
 })
 
 test("divide 1 / '0' / 1 to equal error", () => {
-    expect(base.divide([1,"0",1])).toBe("error not finite");
+    expect(base.divide([1, "0", 1])).toBe("error not finite");
 })
 test("divide empty array to equal error", () => {
     expect(base.divide([])).toBe(undefined);
 })
+*/
+
+//multiply --Test for presence of strings, infinity, 1, and 0
+test('multiply 1 * 2 to equal 2', () => {
+    expect(base.multiply([1, 2])).toBe(2);
+})
+test('multiply 100 * 0 to equal 0', () => {
+    expect(base.multiply([100, 0])).toBe(0);
+})
+test("multiply 'test' * 0 to equal 'Error - operands need to be numeric'", () => {
+    expect(base.multiply(['test', 0])).toBe("Error - operands need to be numeric");
+})
+
+/*
+test("multiply empty array to equal error", () => {
+    expect(base.multiply([])).toBe("Error - operands need to be numeric");
+})*/
+
+test("multiply empty array to equal error", () => {
+    expect(base.multiply([])).toBe(undefined);
+})
+
+ test('multiply a string bill with parrot to return a nah', () => {
+     expect(base.multiply(['bill', 'parrot'])).toBe("Error - operands need to be numeric");
+ })
