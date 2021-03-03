@@ -1,41 +1,40 @@
-function add (input) {
-       return operation(input, function (result, input) {
-            return result + input;
-        })
-    }
-function subtract (input) {
-    try{
+function add(input) {
     return operation(input, function (result, input) {
+        return result + input;
+    })
+}
+function subtract(input) {
+    try {
+        return operation(input, function (result, input) {
             return result - input;
         })
-     } catch{
-         return "cannot subtract two strings"
-     }
+    } catch {
+        return "cannot subtract two strings"
     }
-function divide (input) {
+}
+function divide(input) {
 
     return operation(input, function (result, input) {
         console.log(result, input)
         if (!Number.isFinite(result / input || input === 'error not finite')) {
             return "error not finite";
         }
-            return result / input;
-        });
-        
-        
-    }
-function multiple (input) {
+        return result / input;
+    });
 
+}
+
+//Multiply numbers.  Check for Infinity and strings.
+function multiply(input) {
     return operation(input, function (result, input) {
         console.log(result, input)
-        if (!Number.isFinite(result / input || input === 'error not finite')) {
-            return "error not finite";
-        }
+        if ((Number.isFinite(result * input) && (typeof(result*input)!= 'undefined'))) {
             return result * input;
-        });
-            
-            
-    }
+        }
+        return "Error - operands need to be numeric";        
+    });
+}
+
 function operation(input, operator) {
     var result = input.shift();
     for (i = 0; i < input.length; i++) {
@@ -46,4 +45,4 @@ function operation(input, operator) {
 }
 
 
-module.exports = { add, subtract, divide, multiple, operation}
+module.exports = { add, subtract, divide, multiply, operation }
