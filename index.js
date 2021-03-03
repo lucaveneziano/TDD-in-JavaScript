@@ -34,6 +34,17 @@ function multiply(input) {
         return "Error - operands need to be numeric";        
     });
 }
+// exponent
+function pow(input) {
+    return operation(input, function (result, input) {
+        console.log(result, input)
+        if ((Number.isFinite(result ** input) && (typeof(result**input)!= 'undefined'))) {
+            return result ** input;
+        }
+        return "Error - operands need to be numeric";        
+    });
+}
+
 
 function operation(input, operator) {
     var result = input.shift();
@@ -45,4 +56,4 @@ function operation(input, operator) {
 }
 
 
-module.exports = { add, subtract, divide, multiply, operation }
+module.exports = { add, subtract, divide, multiply, pow, operation }
